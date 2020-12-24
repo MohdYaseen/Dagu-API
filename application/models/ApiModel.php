@@ -22,5 +22,57 @@ class ApiModel extends CI_Model
         return array('status' => 200,'menulist' => $query->result());
       
     }
+    public function checkEmailExist($email){
+       $this->db->where('email', $email);
+       $query = $this->db->select("*")->get('customer_base');
+       return $query->row();
+    }
+    public function customerRegistration($data){
+        $id= $this->db->insert('customer_base',$data);
+        if($id){
+            return array('status' => 200,'message' => "Registration Successfully!");
+        }
+        else{
+            return array('status' => 400,'message' => "Error Occured!");
+        }
+    }
+
+    public function customerLogin($email, $pass)
+    {
+       $this->db->where('email', $email);
+       $this->db->where('password', md5($pass));
+       $this->db->where('status', 'Active');
+       $query = $this->db->select("title, fname,lname,email,device_type,logintype")->get('customer_base');
+       return array('status' => 200,'userdetails' => $query->row());
+    }
+
+    public function customerFacebookGoogleLogin($data)
+    {
+       $id= $this->checkEmailExist($data['email']);
+       if($id){
+           $this->db->where('email', $data['email']);          
+           $this->db->where('status', 'Active');
+           $query = $this->db->select("title, fname,lname,email,device_type,logintype")->get('customer_base');
+           return array('status' => 200,'userdetails' => $query->row());
+        }
+       else{
+            $reg= $this->db->insert('customer_base',$data);
+            if($reg){
+               $this->db->where('email', $data['email']);          
+               $this->db->where('status', 'Active');
+               $query = $this->db->select("title, fname,lname,email,device_type,logintype")->get('customer_base');
+               return array('status' => 200,'userdetails' => $query->row());
+            }
+            else{
+                return array('status' => 400,'message' => "Error Occured!");
+            }
+       }
+    }
+
+    public function gerServices(){ 
+        $this->db->where('status', 'Active');       
+        $query = $this->db->select("serviceid,servicename")->get('services');
+        return array('status' => 200,'servicelist' => $query->result());
+    }
   
 }
