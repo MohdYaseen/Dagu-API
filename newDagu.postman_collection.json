@@ -1,0 +1,233 @@
+{
+	"id": "bdcf3069-a9f2-b503-bee4-dd3ae4145b03",
+	"name": "Dagu",
+	"description": "",
+	"order": [
+		"96f1b5ec-d14d-7a0f-6388-fdbe439d4cf9",
+		"4d197913-19f3-c3f9-14d4-7989d5781ebf",
+		"53302b33-a801-fe44-c921-2c689ead14fc",
+		"35d3db19-7233-9fd6-5de0-c815c02e083c",
+		"2bb9422d-98b4-7caa-7965-dcb98bbb5256"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1607001274240,
+	"owner": "3732059",
+	"public": false,
+	"requests": [
+		{
+			"id": "2bb9422d-98b4-7caa-7965-dcb98bbb5256",
+			"headers": "Client-Service: frontend-deguclient\nAuth-Key: BigBoss_2020\nContent-Type: Application/json\n",
+			"headerData": [
+				{
+					"key": "Client-Service",
+					"value": "frontend-deguclient",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Auth-Key",
+					"value": "BigBoss_2020",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "Application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://ec2-18-188-124-27.us-east-2.compute.amazonaws.com/Apis/gerServices",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "bdcf3069-a9f2-b503-bee4-dd3ae4145b03",
+			"data": null,
+			"dataMode": "params",
+			"name": "get services",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1608781601435,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "35d3db19-7233-9fd6-5de0-c815c02e083c",
+			"headers": "Client-Service: frontend-deguclient\nAuth-Key: BigBoss_2020\nContent-Type: Application/json\n",
+			"headerData": [
+				{
+					"key": "Client-Service",
+					"value": "frontend-deguclient",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Auth-Key",
+					"value": "BigBoss_2020",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "Application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://ec2-18-188-124-27.us-east-2.compute.amazonaws.com/Apis/customerFacebookGoogleLogin",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "bdcf3069-a9f2-b503-bee4-dd3ae4145b03",
+			"data": [],
+			"dataMode": "raw",
+			"name": "customer FacebookGoogle Login",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1608780693901,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n \"email\":\"skirfan43sy@gmail.com\",\n \"device_type\":\"Android\",\n \"logintype\":\"Facebook\"\n}"
+		},
+		{
+			"id": "4d197913-19f3-c3f9-14d4-7989d5781ebf",
+			"headers": "Client-Service: frontend-deguclient\nAuth-Key: BigBoss_2020\nContent-Type: Application/json\n",
+			"headerData": [
+				{
+					"key": "Client-Service",
+					"value": "frontend-deguclient",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Auth-Key",
+					"value": "BigBoss_2020",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "Application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://ec2-18-188-124-27.us-east-2.compute.amazonaws.com/Apis/customerRegistration",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "bdcf3069-a9f2-b503-bee4-dd3ae4145b03",
+			"data": [],
+			"dataMode": "raw",
+			"name": "customer Registration",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1608736484852,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n \"title\":\"Mr\",\n \"fname\":\"irfan\",\n \"lname\":\"shaikh\",\n \"email\":\"skirfan43sy@gmail.com\",\n \"password\":\"12345\",\n \"device_type\":\"Android\"\n}"
+		},
+		{
+			"id": "53302b33-a801-fe44-c921-2c689ead14fc",
+			"headers": "Client-Service: frontend-deguclient\nAuth-Key: BigBoss_2020\nContent-Type: Application/json\n",
+			"headerData": [
+				{
+					"key": "Client-Service",
+					"value": "frontend-deguclient",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Auth-Key",
+					"value": "BigBoss_2020",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "Application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://ec2-18-188-124-27.us-east-2.compute.amazonaws.com/Apis/customerLogin",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "bdcf3069-a9f2-b503-bee4-dd3ae4145b03",
+			"data": [],
+			"dataMode": "raw",
+			"name": "customer login",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1608736616545,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n \"email\":\"skirfan43sy@gmail.com\",\n \"password\":\"12345\"\n \n}"
+		},
+		{
+			"id": "96f1b5ec-d14d-7a0f-6388-fdbe439d4cf9",
+			"headers": "Client-Service: frontend-deguclient\nAuth-Key: BigBoss_2020\nContent-Type: Application/json\n",
+			"headerData": [
+				{
+					"key": "Client-Service",
+					"value": "frontend-deguclient",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Auth-Key",
+					"value": "BigBoss_2020",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "Application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://ec2-18-188-124-27.us-east-2.compute.amazonaws.com/Apis/getMenus",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "bdcf3069-a9f2-b503-bee4-dd3ae4145b03",
+			"data": [],
+			"dataMode": "raw",
+			"name": "getMenus",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1608735790722,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\t\"hotel_id\":1\n}"
+		}
+	]
+}
