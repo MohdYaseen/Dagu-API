@@ -74,5 +74,11 @@ class ApiModel extends CI_Model
         $query = $this->db->select("serviceid,servicename")->get('services');
         return array('status' => 200,'servicelist' => $query->result());
     }
+
+     public function getMedicalServices(){ 
+        $this->db->where('status', 'Active');       
+        $query = $this->db->select("serviceid,servicename")->get('services');
+        return array('status' => 200,'servicelist' => $query->result());
+    }
   
 }

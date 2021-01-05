@@ -169,6 +169,23 @@ class Apis extends CI_Controller {
         }    
     }
   
+  public function getMedicalServices()
+  {
+        $method = $_SERVER['REQUEST_METHOD'];
+        if($method != 'GET'){
+            echo json_encode(array('status' => 400,'message' => 'Bad request.'));
+        } 
+        else {
+            $check_auth_client = $this->api->check_auth_client();
+            if($check_auth_client === true){
+                $resp = $this->api->getMedicalServices();               
+                echo json_encode($resp);
+            }
+           else{
+            echo $check_auth_client;
+           }
+        }    
+  }
   
 	
 }
