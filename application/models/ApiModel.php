@@ -52,7 +52,7 @@ class ApiModel extends CI_Model
        if($id){
            $this->db->where('email', $data['email']);          
            $this->db->where('status', 'Active');
-           $query = $this->db->select("title, fname,lname,email,device_type,logintype")->get('customer_base');
+           $query = $this->db->select("id,title, fname,lname,email,device_type,logintype")->get('customer_base');
            return array('status' => 200,'userdetails' => $query->row());
         }
        else{
@@ -70,13 +70,24 @@ class ApiModel extends CI_Model
     }
 
     public function gerServices(){ 
-        $this->db->where('status', 'Active');       
+        $this->db->where('status', 'Active'); 
+        $this->db->where('isMedical','No');   
+         $this->db->where('IsRestaurant','No'); 
         $query = $this->db->select("serviceid,servicename")->get('services');
         return array('status' => 200,'servicelist' => $query->result());
     }
 
      public function getMedicalServices(){ 
-        $this->db->where('status', 'Active');       
+        $this->db->where('status', 'Active');
+        $this->db->where('isMedical','Yes');  
+         $this->db->where('IsRestaurant','No');     
+        $query = $this->db->select("serviceid,servicename")->get('services');
+        return array('status' => 200,'servicelist' => $query->result());
+    }
+    public function getRestaurant(){ 
+        $this->db->where('status', 'Active');
+        $this->db->where('isMedical','No');  
+         $this->db->where('IsRestaurant','Yes');     
         $query = $this->db->select("serviceid,servicename")->get('services');
         return array('status' => 200,'servicelist' => $query->result());
     }

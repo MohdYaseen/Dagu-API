@@ -19,7 +19,6 @@ class Apis extends CI_Controller {
         } 
         else {
             $check_auth_client = $this->api->check_auth_client(); 
-
             if($check_auth_client === true){
                 $params = json_decode(file_get_contents('php://input'), TRUE);
                 if ($params['hotel_id'] == "") {                    
@@ -38,7 +37,6 @@ class Apis extends CI_Controller {
 
     public function customerRegistration()
     {   
-
         $method = $_SERVER['REQUEST_METHOD'];
         if($method != 'POST'){
             echo json_encode(array('status' => 400,'message' => 'Bad request.'));
@@ -171,20 +169,38 @@ class Apis extends CI_Controller {
   
   public function getMedicalServices()
   {
-        $method = $_SERVER['REQUEST_METHOD'];
-        if($method != 'GET'){
-            echo json_encode(array('status' => 400,'message' => 'Bad request.'));
-        } 
-        else {
-            $check_auth_client = $this->api->check_auth_client();
-            if($check_auth_client === true){
-                $resp = $this->api->getMedicalServices();               
-                echo json_encode($resp);
-            }
-           else{
-            echo $check_auth_client;
-           }
-        }    
+    $method = $_SERVER['REQUEST_METHOD'];
+    if($method != 'GET'){
+        echo json_encode(array('status' => 400,'message' => 'Bad request.'));
+    } 
+    else {
+        $check_auth_client = $this->api->check_auth_client();
+        if($check_auth_client === true){
+            $resp = $this->api->getMedicalServices();               
+            echo json_encode($resp);
+        }
+       else{
+        echo $check_auth_client;
+       }
+    }    
+  }
+
+  public function getRestaurant()
+  {
+    $method = $_SERVER['REQUEST_METHOD'];
+    if($method != 'GET'){
+        echo json_encode(array('status' => 400,'message' => 'Bad request.'));
+    } 
+    else {
+        $check_auth_client = $this->api->check_auth_client();
+        if($check_auth_client === true){
+            $resp = $this->api->getRestaurant();               
+            echo json_encode($resp);
+        }
+       else{
+        echo $check_auth_client;
+       }
+    }    
   }
   
 	
