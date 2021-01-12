@@ -71,25 +71,34 @@ class ApiModel extends CI_Model
 
     public function gerServices(){ 
         $this->db->where('status', 'Active'); 
-        $this->db->where('isMedical','No');   
-         $this->db->where('IsRestaurant','No'); 
+        $this->db->where('type','Business');         
         $query = $this->db->select("serviceid,servicename")->get('services');
         return array('status' => 200,'servicelist' => $query->result());
     }
-
-     public function getMedicalServices(){ 
-        $this->db->where('status', 'Active');
-        $this->db->where('isMedical','Yes');  
-         $this->db->where('IsRestaurant','No');     
-        $query = $this->db->select("serviceid,servicename")->get('services');
-        return array('status' => 200,'servicelist' => $query->result());
+    public function getMedicalServices(){ 
+      $this->db->where('status', 'Active');
+      $this->db->where('type','Medical');
+      $query = $this->db->select("serviceid,servicename")->get('services');
+      return array('status' => 200,'servicelist' => $query->result());
     }
     public function getRestaurant(){ 
-        $this->db->where('status', 'Active');
-        $this->db->where('isMedical','No');  
-         $this->db->where('IsRestaurant','Yes');     
-        $query = $this->db->select("serviceid,servicename")->get('services');
-        return array('status' => 200,'servicelist' => $query->result());
+      $this->db->where('status', 'Active');
+      $this->db->where('type','Restaurant'); 
+      $query = $this->db->select("serviceid,servicename")->get('services');
+      return array('status' => 200,'servicelist' => $query->result());
+    }
+    public function getNotProfit(){ 
+      $this->db->where('status', 'Active');
+      $this->db->where('type','NonProfit'); 
+      $query = $this->db->select("serviceid,servicename")->get('services');
+      return array('status' => 200,'servicelist' => $query->result());
+    }
+
+    public function getServiceBusinessList($id){
+      $this->db->where('status', 'Active');
+      $this->db->where('serviceid',$id); 
+      $query = $this->db->select("businessid,name,address,websiteurl,image")->get('business');
+      return array('status' => 200,'businesslist' => $query->result());
     }
   
 }
