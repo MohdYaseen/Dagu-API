@@ -219,6 +219,7 @@ class Apis extends CI_Controller {
        }
     }    
   }
+  
   public function getServiceBusinessList()
     {           
         $method = $_SERVER['REQUEST_METHOD'];
