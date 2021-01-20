@@ -267,6 +267,30 @@ class Apis extends CI_Controller {
            }
         }       
     }
+
+     public function restaurantOrders()
+    {           
+        $method = $_SERVER['REQUEST_METHOD'];
+        if($method != 'POST'){
+            echo json_encode(array('status' => 400,'message' => 'Bad request.'));
+        } 
+        else {
+            $check_auth_client = $this->api->check_auth_client(); 
+            if($check_auth_client === true){
+                $params = json_decode(file_get_contents('php://input'), TRUE);
+                if ($params['serviceid'] == "") {                    
+                    $resp = array('status' => 400,'message' =>  'Service ID is Required');
+                 } 
+                 else {
+                    $resp = $this->api->getServiceBusinessList($params['serviceid']);
+                }
+                echo json_encode($resp);
+            }
+           else{
+            echo $check_auth_client;
+           }
+        }       
+    }
 	
 }
 
