@@ -100,5 +100,31 @@ class ApiModel extends CI_Model
       $query = $this->db->select("businessid,name,address,websiteurl,image")->get('business');
       return array('status' => 200,'businesslist' => $query->result());
     }
+
+    public function makeAnAppointment($data){
+      $id= $this->db->insert('business_appointment',$data);
+      if($id){
+          return array('status' => 200,'message' => "Make Appointment Successfully!");
+      }
+      else{
+          return array('status' => 400,'message' => "Error Occured!");
+      }
+    }
+
+    public function getTimeSlot(){
+      $this->db->where('status', 'Active');
+      $query = $this->db->select("timeslotid,formtime,totime")->get('timeslot');
+      return array('status' => 200,'timeslot' => $query->result());
+    }
+
+     public function addCustomerAddress($data){
+      $id= $this->db->insert('customer_address',$data);
+      if($id){
+          return array('status' => 200,'message' => "Address Added Successfully!");
+      }
+      else{
+          return array('status' => 400,'message' => "Error Occured!");
+      }
+    }
   
 }

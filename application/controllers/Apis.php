@@ -34,7 +34,6 @@ class Apis extends CI_Controller {
            }
         }       
     }
-
     public function customerRegistration()
     {   
         $method = $_SERVER['REQUEST_METHOD'];
@@ -149,7 +148,7 @@ class Apis extends CI_Controller {
         }    
     }
 
-    public function gerServices()
+    public function gerBusiness()
     {
        $method = $_SERVER['REQUEST_METHOD'];
         if($method != 'GET'){
@@ -253,12 +252,27 @@ class Apis extends CI_Controller {
         else {
             $check_auth_client = $this->api->check_auth_client(); 
             if($check_auth_client === true){
-                $params = json_decode(file_get_contents('php://input'), TRUE);
-                if ($params['serviceid'] == "") {                    
-                    $resp = array('status' => 400,'message' =>  'Service ID is Required');
+                $params = json_decode(file_get_contents('php://input'), TRUE);               
+                if ($params['businessid'] == "") {                    
+                    $resp = array('status' => 400,'message' =>  'Business ID is Required');
                  } 
+                 else if ($params['firstname'] == "") {                    
+                    $resp = array('status' => 400,'message' =>  'First Name is Required');
+                 } 
+                 else if ($params['lastname'] == "") {                    
+                    $resp = array('status' => 400,'message' =>  'Last Name is Required');
+                 } 
+                 else if ($params['email'] == "") {                    
+                    $resp = array('status' => 400,'message' =>  'Email is Required');
+                 }                 
+                 else if ($params['phonenumber'] == "") {                    
+                    $resp = array('status' => 400,'message' =>  'Phone Number is Required');
+                 } 
+                else if ($params['comment'] == "") {                    
+                    $resp = array('status' => 400,'message' =>  'Comment is Required');
+                 }                 
                  else {
-                    $resp = $this->api->getServiceBusinessList($params['serviceid']);
+                    $resp = $this->api->makeAnAppointment($params);
                 }
                 echo json_encode($resp);
             }
@@ -268,22 +282,39 @@ class Apis extends CI_Controller {
         }       
     }
 
-    public function restaurantOrders()
+    // public function restaurantOrders()
+    // {           
+    //     $method = $_SERVER['REQUEST_METHOD'];
+    //     if($method != 'POST'){
+    //         echo json_encode(array('status' => 400,'message' => 'Bad request.'));
+    //     } 
+    //     else {
+    //         $check_auth_client = $this->api->check_auth_client(); 
+    //         if($check_auth_client === true){
+    //             $params = json_decode(file_get_contents('php://input'), TRUE);
+    //             if ($params['serviceid'] == "") {                    
+    //                 $resp = array('status' => 400,'message' =>  'Service ID is Required');
+    //              } 
+    //              else {
+    //                 $resp = $this->api->getServiceBusinessList($params['serviceid']);
+    //             }
+    //             echo json_encode($resp);
+    //         }
+    //        else{
+    //         echo $check_auth_client;
+    //        }
+    //     }       
+    // }
+	public function getTaxes()
     {           
         $method = $_SERVER['REQUEST_METHOD'];
-        if($method != 'POST'){
+        if($method != 'GET'){
             echo json_encode(array('status' => 400,'message' => 'Bad request.'));
         } 
         else {
             $check_auth_client = $this->api->check_auth_client(); 
-            if($check_auth_client === true){
-                $params = json_decode(file_get_contents('php://input'), TRUE);
-                if ($params['serviceid'] == "") {                    
-                    $resp = array('status' => 400,'message' =>  'Service ID is Required');
-                 } 
-                 else {
-                    $resp = $this->api->getServiceBusinessList($params['serviceid']);
-                }
+            if($check_auth_client === true){              
+                $resp = $this->api->getTaxes();               
                 echo json_encode($resp);
             }
            else{
@@ -291,8 +322,25 @@ class Apis extends CI_Controller {
            }
         }       
     }
-	public function getTaxes()
+    public function getTimeSlot()
     {           
+        $method = $_SERVER['REQUEST_METHOD'];
+        if($method != 'GET'){
+            echo json_encode(array('status' => 400,'message' => 'Bad request.'));
+        } 
+        else {
+            $check_auth_client = $this->api->check_auth_client(); 
+            if($check_auth_client === true){              
+                $resp = $this->api->getTimeSlot();               
+                echo json_encode($resp);
+            }
+           else{
+            echo $check_auth_client;
+           }
+        }       
+    }
+
+    public function addCustomerAddress(){
         $method = $_SERVER['REQUEST_METHOD'];
         if($method != 'POST'){
             echo json_encode(array('status' => 400,'message' => 'Bad request.'));
@@ -300,19 +348,31 @@ class Apis extends CI_Controller {
         else {
             $check_auth_client = $this->api->check_auth_client(); 
             if($check_auth_client === true){
-                $params = json_decode(file_get_contents('php://input'), TRUE);
-                if ($params['serviceid'] == "") {                    
-                    $resp = array('status' => 400,'message' =>  'Service ID is Required');
+                $params = json_decode(file_get_contents('php://input'), TRUE);               
+                if ($params['user_id'] == "") {                    
+                    $resp = array('status' => 400,'message' =>  'User ID is Required');
                  } 
+                 else if ($params['firstname'] == "") {                    
+                    $resp = array('status' => 400,'message' =>  'First Name is Required');
+                 } 
+                 else if ($params['lastname'] == "") {                    
+                    $resp = array('status' => 400,'message' =>  'Last Name is Required');
+                 } 
+                 else if ($params['email'] == "") {                    
+                    $resp = array('status' => 400,'message' =>  'Email is Required');
+                 }                 
+                 else if ($params['phonenumber'] == "") {                    
+                    $resp = array('status' => 400,'message' =>  'Phone Number is Required');
+                 }                               
                  else {
-                    $resp = $this->api->getServiceBusinessList($params['serviceid']);
+                    $resp = $this->api->addCustomerAddress($params);
                 }
                 echo json_encode($resp);
             }
            else{
             echo $check_auth_client;
            }
-        }       
+        }   
     }
 }
 

@@ -1,0 +1,578 @@
+{
+	"id": "bdcf3069-a9f2-b503-bee4-dd3ae4145b03",
+	"name": "Dagu",
+	"description": "",
+	"order": [
+		"96f1b5ec-d14d-7a0f-6388-fdbe439d4cf9",
+		"4d197913-19f3-c3f9-14d4-7989d5781ebf",
+		"53302b33-a801-fe44-c921-2c689ead14fc",
+		"35d3db19-7233-9fd6-5de0-c815c02e083c",
+		"2bb9422d-98b4-7caa-7965-dcb98bbb5256",
+		"477717b7-dd2e-8bfa-013e-84d528305033",
+		"87ca5bca-7bd6-3016-30b9-5872877975c7",
+		"79d57d47-41d7-aafb-3e03-aff27452b485",
+		"0a33dfc4-0748-5530-23dc-e99956e46afc",
+		"5cbe5456-78bd-03ae-b8f3-f332d485b013",
+		"4ad9b519-a9ac-4f98-affe-da9618b13570",
+		"99d692dc-d0e2-e3c8-0412-d6d77ee5a646",
+		"90bd4ff1-d686-e419-51b6-ae650f2dbbfd"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1607001274240,
+	"owner": "3732059",
+	"public": false,
+	"requests": [
+		{
+			"id": "0a33dfc4-0748-5530-23dc-e99956e46afc",
+			"headers": "Client-Service: frontend-deguclient\nAuth-Key: BigBoss_2020\nContent-Type: Application/json\n",
+			"headerData": [
+				{
+					"key": "Client-Service",
+					"value": "frontend-deguclient",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Auth-Key",
+					"value": "BigBoss_2020",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "Application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://ec2-18-188-124-27.us-east-2.compute.amazonaws.com/Apis/getServiceBusinessList",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "bdcf3069-a9f2-b503-bee4-dd3ae4145b03",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Business list based on services",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1611286532366,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\t\"serviceid\":1\n}"
+		},
+		{
+			"id": "2bb9422d-98b4-7caa-7965-dcb98bbb5256",
+			"headers": "Client-Service: frontend-deguclient\nAuth-Key: BigBoss_2020\nContent-Type: Application/json\n",
+			"headerData": [
+				{
+					"key": "Client-Service",
+					"value": "frontend-deguclient",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Auth-Key",
+					"value": "BigBoss_2020",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "Application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://ec2-18-188-124-27.us-east-2.compute.amazonaws.com/Apis/gerBusiness",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1611285985445,
+			"name": "Business Services",
+			"description": "",
+			"collectionId": "bdcf3069-a9f2-b503-bee4-dd3ae4145b03",
+			"responses": []
+		},
+		{
+			"id": "35d3db19-7233-9fd6-5de0-c815c02e083c",
+			"headers": "Client-Service: frontend-deguclient\nAuth-Key: BigBoss_2020\nContent-Type: Application/json\n",
+			"headerData": [
+				{
+					"key": "Client-Service",
+					"value": "frontend-deguclient",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Auth-Key",
+					"value": "BigBoss_2020",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "Application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://ec2-18-188-124-27.us-east-2.compute.amazonaws.com/Apis/customerFacebookGoogleLogin",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "bdcf3069-a9f2-b503-bee4-dd3ae4145b03",
+			"data": [],
+			"dataMode": "raw",
+			"name": "customer FacebookGoogle Login",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1608780693901,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n \"email\":\"skirfan43sy@gmail.com\",\n \"device_type\":\"Android\",\n \"logintype\":\"Facebook\"\n}"
+		},
+		{
+			"id": "477717b7-dd2e-8bfa-013e-84d528305033",
+			"headers": "Client-Service: frontend-deguclient\nAuth-Key: BigBoss_2020\nContent-Type: Application/json\n",
+			"headerData": [
+				{
+					"key": "Client-Service",
+					"value": "frontend-deguclient",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Auth-Key",
+					"value": "BigBoss_2020",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "Application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://ec2-18-188-124-27.us-east-2.compute.amazonaws.com/Apis/getMedicalServices",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "bdcf3069-a9f2-b503-bee4-dd3ae4145b03",
+			"data": null,
+			"dataMode": "params",
+			"name": "Medical Services",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1611286063213,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "4ad9b519-a9ac-4f98-affe-da9618b13570",
+			"headers": "Client-Service: frontend-deguclient\nAuth-Key: BigBoss_2020\nContent-Type: Application/json\n",
+			"headerData": [
+				{
+					"key": "Client-Service",
+					"value": "frontend-deguclient",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Auth-Key",
+					"value": "BigBoss_2020",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "Application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://ec2-18-188-124-27.us-east-2.compute.amazonaws.com/Apis/getTaxes",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "bdcf3069-a9f2-b503-bee4-dd3ae4145b03",
+			"data": null,
+			"dataMode": "params",
+			"name": "Taxes List",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1611289019208,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "4d197913-19f3-c3f9-14d4-7989d5781ebf",
+			"headers": "Client-Service: frontend-deguclient\nAuth-Key: BigBoss_2020\nContent-Type: Application/json\n",
+			"headerData": [
+				{
+					"key": "Client-Service",
+					"value": "frontend-deguclient",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Auth-Key",
+					"value": "BigBoss_2020",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "Application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://ec2-18-188-124-27.us-east-2.compute.amazonaws.com/Apis/customerRegistration",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "bdcf3069-a9f2-b503-bee4-dd3ae4145b03",
+			"data": [],
+			"dataMode": "raw",
+			"name": "customer Registration",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1608736484852,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n \"title\":\"Mr\",\n \"fname\":\"irfan\",\n \"lname\":\"shaikh\",\n \"email\":\"skirfan43sy@gmail.com\",\n \"password\":\"12345\",\n \"device_type\":\"Android\"\n}"
+		},
+		{
+			"id": "53302b33-a801-fe44-c921-2c689ead14fc",
+			"headers": "Client-Service: frontend-deguclient\nAuth-Key: BigBoss_2020\nContent-Type: Application/json\n",
+			"headerData": [
+				{
+					"key": "Client-Service",
+					"value": "frontend-deguclient",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Auth-Key",
+					"value": "BigBoss_2020",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "Application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://ec2-18-188-124-27.us-east-2.compute.amazonaws.com/Apis/customerLogin",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "bdcf3069-a9f2-b503-bee4-dd3ae4145b03",
+			"data": [],
+			"dataMode": "raw",
+			"name": "customer login",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1608736616545,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n \"email\":\"skirfan43sy@gmail.com\",\n \"password\":\"12345\"\n \n}"
+		},
+		{
+			"id": "5cbe5456-78bd-03ae-b8f3-f332d485b013",
+			"headers": "Client-Service: frontend-deguclient\nAuth-Key: BigBoss_2020\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Client-Service",
+					"value": "frontend-deguclient",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Auth-Key",
+					"value": "BigBoss_2020",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://ec2-18-188-124-27.us-east-2.compute.amazonaws.com/Apis/makeAnAppointment",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "bdcf3069-a9f2-b503-bee4-dd3ae4145b03",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Business Appointment",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1611288344626,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\t\"businessid\":1,\n\t\"firstname\":\"Irfan\",\n\t\"lastname\":\"Shaikh\",\n\t\"email\":\"skirfan43sy@gmail.com\",\n\t\"phonenumber\":\"919970014417\",\n\t\"comment\":\"test\"\n}"
+		},
+		{
+			"id": "79d57d47-41d7-aafb-3e03-aff27452b485",
+			"headers": "Client-Service: frontend-deguclient\nAuth-Key: BigBoss_2020\nContent-Type: Application/json\n",
+			"headerData": [
+				{
+					"key": "Client-Service",
+					"value": "frontend-deguclient",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Auth-Key",
+					"value": "BigBoss_2020",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "Application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://ec2-18-188-124-27.us-east-2.compute.amazonaws.com/Apis/getNotProfit",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "bdcf3069-a9f2-b503-bee4-dd3ae4145b03",
+			"data": null,
+			"dataMode": "params",
+			"name": "Non Porift Services",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1611286161143,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "87ca5bca-7bd6-3016-30b9-5872877975c7",
+			"headers": "Client-Service: frontend-deguclient\nAuth-Key: BigBoss_2020\nContent-Type: Application/json\n",
+			"headerData": [
+				{
+					"key": "Client-Service",
+					"value": "frontend-deguclient",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Auth-Key",
+					"value": "BigBoss_2020",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "Application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://ec2-18-188-124-27.us-east-2.compute.amazonaws.com/Apis/getRestaurant",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "bdcf3069-a9f2-b503-bee4-dd3ae4145b03",
+			"data": null,
+			"dataMode": "params",
+			"name": "Resturant and Markets",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1611286118780,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "90bd4ff1-d686-e419-51b6-ae650f2dbbfd",
+			"headers": "Client-Service: frontend-deguclient\nAuth-Key: BigBoss_2020\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Client-Service",
+					"value": "frontend-deguclient",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Auth-Key",
+					"value": "BigBoss_2020",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://ec2-18-188-124-27.us-east-2.compute.amazonaws.com/Apis/addCustomerAddress",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "bdcf3069-a9f2-b503-bee4-dd3ae4145b03",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Add Customer Address",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1611289767264,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\t\"user_id\":1,\n\t\"firstname\":\"Irfan\",\n\t\"lastname\":\"Shaikh\",\n\t\"email\":\"skirfan43sy@gmail.com\",\n\t\"phonenumber\":\"919970014417\"\n}"
+		},
+		{
+			"id": "96f1b5ec-d14d-7a0f-6388-fdbe439d4cf9",
+			"headers": "Client-Service: frontend-deguclient\nAuth-Key: BigBoss_2020\nContent-Type: Application/json\n",
+			"headerData": [
+				{
+					"key": "Client-Service",
+					"value": "frontend-deguclient",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Auth-Key",
+					"value": "BigBoss_2020",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "Application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://ec2-18-188-124-27.us-east-2.compute.amazonaws.com/Apis/getMenus",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "bdcf3069-a9f2-b503-bee4-dd3ae4145b03",
+			"data": [],
+			"dataMode": "raw",
+			"name": "getMenus",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1608735790722,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\t\"hotel_id\":1\n}"
+		},
+		{
+			"id": "99d692dc-d0e2-e3c8-0412-d6d77ee5a646",
+			"headers": "Client-Service: frontend-deguclient\nAuth-Key: BigBoss_2020\nContent-Type: Application/json\n",
+			"headerData": [
+				{
+					"key": "Client-Service",
+					"value": "frontend-deguclient",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Auth-Key",
+					"value": "BigBoss_2020",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "Application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://ec2-18-188-124-27.us-east-2.compute.amazonaws.com/Apis/getTimeSlot",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "bdcf3069-a9f2-b503-bee4-dd3ae4145b03",
+			"data": null,
+			"dataMode": "params",
+			"name": "TimeSlot",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1611289674552,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		}
+	]
+}
