@@ -374,6 +374,9 @@ class Apis extends CI_Controller {
            }
         }   
     }
+    public function updateCustomerAddress(){
+      
+    }
 }
 
 /* End of file Apis.php */

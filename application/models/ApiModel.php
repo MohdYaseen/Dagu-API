@@ -110,7 +110,11 @@ class ApiModel extends CI_Model
           return array('status' => 400,'message' => "Error Occured!");
       }
     }
-
+    public function getTaxes(){
+      $this->db->where('status', 'Active');
+      $query = $this->db->select("taxid,taxname,percentage")->get('tax');
+      return array('status' => 200,'taxlist' => $query->result());
+    }
     public function getTimeSlot(){
       $this->db->where('status', 'Active');
       $query = $this->db->select("timeslotid,formtime,totime")->get('timeslot');
