@@ -458,7 +458,7 @@ $config['csrf_token_name'] = 'csrf_test_name';
 $config['csrf_cookie_name'] = 'csrf_cookie_name';
 $config['csrf_expire'] = 28800;
 $config['csrf_regenerate'] = FALSE;
-$config['csrf_exclude_uris'] = array('Apis/getMenus','Apis/customerRegistration','Apis/customerLogin','Apis/customerFacebookGoogleLogin','Apis/getServiceBusinessList','Apis/makeAnAppointment','Apis/addCustomerAddress');
+$config['csrf_exclude_uris'] = array('Apis/getMenus','Apis/customerRegistration','Apis/customerLogin','Apis/customerFacebookGoogleLogin','Apis/getServiceBusinessList','Apis/makeAnAppointment','Apis/addCustomerAddress','Apis/restaurantOrders','Apis/cutomerWiseOrderDetails','Apis/businessWiseOrderDetails','Apis/getRestautrantCategory','Apis/updateCustomerAddress','Apis/deleteCustomerAddress','Apis/addCustPaymentDetails','Apis/updateCustPaymentDetails','Apis/deleteCustPaymentDetails','Apis/getMenuLists');
 
 /*
 |--------------------------------------------------------------------------
