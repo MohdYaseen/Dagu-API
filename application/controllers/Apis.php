@@ -10,8 +10,30 @@ class Apis extends CI_Controller {
         $this->load->model('ApiModel', 'api');
   
     }
-    
-    public function getMenus()
+   
+    public function getRestautrantMenu(){
+        $method = $_SERVER['REQUEST_METHOD'];
+        if($method != 'POST'){
+            echo json_encode(array('status' => 400,'message' => 'Bad request.'));
+        } 
+        else {
+            $check_auth_client = $this->api->check_auth_client(); 
+            if($check_auth_client === true){
+            $params = json_decode(file_get_contents('php://input'), TRUE); 
+               if ($params['hotel_id'] == "") {                    
+                    $resp = array('status' => 400,'message' =>  'Business ID is Required');
+                 }                 
+                 else {
+                    $resp = $this->api->getRestautrantMenu($params['hotel_id']);
+                }
+                echo json_encode($resp);
+           }
+           else{
+            echo $check_auth_client;
+           }
+        }
+    }
+    public function getMenuItems()
     {           
         $method = $_SERVER['REQUEST_METHOD'];
         if($method != 'POST'){
@@ -24,8 +46,11 @@ class Apis extends CI_Controller {
                 if ($params['hotel_id'] == "") {                    
                     $resp = array('status' => 400,'message' =>  'Hotel ID is Required');
                  } 
+                if ($params['item_catid'] == "") {                    
+                    $resp = array('status' => 400,'message' =>  'Category ID is Required');
+                 } 
                  else {
-                    $resp = $this->api->getMenus($params['hotel_id']);
+                    $resp = $this->api->getMenuItems($params['hotel_id'],$params['item_catid']);
                 }
                 echo json_encode($resp);
             }
@@ -309,7 +334,7 @@ class Apis extends CI_Controller {
                  } 
                    else if ($params['carddetailsid'] == "") {                    
                     $resp = array('status' => 400,'message' =>  'Payment ID is Required');
-                 } 
+                 }                  
                  else if ($params['products'] == "") {                    
                     $resp = array('status' => 400,'message' =>  'Products  is Required');
                  } 
@@ -427,33 +452,6 @@ class Apis extends CI_Controller {
        }
 
 }
-
-
-public function getRestautrantCategory(){
-   $method = $_SERVER['REQUEST_METHOD'];
-        if($method != 'POST'){
-            echo json_encode(array('status' => 400,'message' => 'Bad request.'));
-        } 
-        else {
-            $check_auth_client = $this->api->check_auth_client(); 
-            if($check_auth_client === true){
-            $params = json_decode(file_get_contents('php://input'), TRUE); 
-               if ($params['businessid'] == "") {                    
-                    $resp = array('status' => 400,'message' =>  'Business ID is Required');
-                 } 
-                 else {
-                    $resp = $this->api->getRestautrantCategory($params['businessid']);
-                }
-                echo json_encode($resp);
-           }
-           else{
-            echo $check_auth_client;
-           }
-       }
-
-}
-
-
     
     public function addCustomerAddress(){
         $method = $_SERVER['REQUEST_METHOD'];
@@ -543,7 +541,7 @@ public function getRestautrantCategory(){
                     $resp = array('status' => 400,'message' =>  'Address ID is Required');
                  }                                   
                  else {
-                    $resp = $this->api->deleteCustomerAddress($params);
+                    $resp = $this->api->deleteCustomerAddress($params['add_id']);
                 }
                 echo json_encode($resp);
             }
@@ -553,7 +551,28 @@ public function getRestautrantCategory(){
         }   
     }
 
-
+    public function getCustomerAddress(){
+        $method = $_SERVER['REQUEST_METHOD'];
+        if($method != 'POST'){
+            echo json_encode(array('status' => 400,'message' => 'Bad request.'));
+        } 
+        else {
+            $check_auth_client = $this->api->check_auth_client(); 
+            if($check_auth_client === true){
+                $params = json_decode(file_get_contents('php://input'), TRUE);               
+                if ($params['user_id'] == "") {                    
+                    $resp = array('status' => 400,'message' =>  'User ID is Required');
+                 }                                             
+                 else {
+                    $resp = $this->api->getCustomerAddress($params['user_id']);
+                }
+                echo json_encode($resp);
+            }
+           else{
+            echo $check_auth_client;
+           }
+        }   
+    }
         public function addCustPaymentDetails(){
         $method = $_SERVER['REQUEST_METHOD'];
         if($method != 'POST'){
@@ -588,7 +607,7 @@ public function getRestautrantCategory(){
            }
         }   
     }
-            public function updateCustPaymentDetails(){
+    public function updateCustPaymentDetails(){
         $method = $_SERVER['REQUEST_METHOD'];
         if($method != 'POST'){
             echo json_encode(array('status' => 400,'message' => 'Bad request.'));
@@ -640,7 +659,7 @@ public function getRestautrantCategory(){
                     $resp = array('status' => 400,'message' =>  'card ID is Required');
                  }                                   
                  else {
-                    $resp = $this->api->deleteCustPaymentDetails($params);
+                    $resp = $this->api->deleteCustPaymentDetails($params['carddetailsid']);
                 }
                 echo json_encode($resp);
             }
@@ -650,8 +669,31 @@ public function getRestautrantCategory(){
         }   
     }
 
-    public function getMenuList(){
-   $method = $_SERVER['REQUEST_METHOD'];
+    public function getCustPaymentDetails(){
+        $method = $_SERVER['REQUEST_METHOD'];
+        if($method != 'POST'){
+            echo json_encode(array('status' => 400,'message' => 'Bad request.'));
+        } 
+        else {
+            $check_auth_client = $this->api->check_auth_client(); 
+            if($check_auth_client === true){
+                $params = json_decode(file_get_contents('php://input'), TRUE); 
+                 if ($params['user_id'] == "") {                    
+                    $resp = array('status' => 400,'message' =>  'card ID is Required');
+                 }                                   
+                 else {
+                    $resp = $this->api->getCustPaymentDetails($params['user_id']);
+                }
+                echo json_encode($resp);
+            }
+           else{
+            echo $check_auth_client;
+           }
+        }   
+    }
+
+    public function applyCouponcode(){
+        $method = $_SERVER['REQUEST_METHOD'];
         if($method != 'POST'){
             echo json_encode(array('status' => 400,'message' => 'Bad request.'));
         } 
@@ -659,11 +701,11 @@ public function getRestautrantCategory(){
             $check_auth_client = $this->api->check_auth_client(); 
             if($check_auth_client === true){
             $params = json_decode(file_get_contents('php://input'), TRUE); 
-               if ($params['itemid'] == "") {                    
-                    $resp = array('status' => 400,'message' =>  'item ID is Required');
+               if ($params['couponcode'] == "") {                    
+                    $resp = array('status' => 400,'message' =>  'Couponcode is Required');
                  } 
                  else {
-                    $resp = $this->api->getMenuLists($params['itemid']);
+                    $resp = $this->api->applyCouponcode($params['couponcode']);
                 }
                 echo json_encode($resp);
            }
@@ -673,6 +715,79 @@ public function getRestautrantCategory(){
        }
 
 }
+
+
+        public function addWishlist(){
+        $method = $_SERVER['REQUEST_METHOD'];
+        if($method != 'POST'){
+            echo json_encode(array('status' => 400,'message' => 'Bad request.'));
+        } 
+        else {
+            $check_auth_client = $this->api->check_auth_client(); 
+            if($check_auth_client === true){
+                $params = json_decode(file_get_contents('php://input'), TRUE);               
+                if ($params['user_id'] == "") {                    
+                    $resp = array('status' => 400,'message' =>  'User ID is Required');
+                 } 
+                 else if ($params['itemid'] == "") {                    
+                    $resp = array('status' => 400,'message' =>  'cart number is Required');
+                 }                       
+                 else {                   
+                    $resp = $this->api->addWishlist($params);
+                }
+                echo json_encode($resp);
+            }
+           else{
+            echo $check_auth_client;
+           }
+        }   
+    }
+     public function getWishlist()
+    {           
+        $method = $_SERVER['REQUEST_METHOD'];
+        if($method != 'POST'){
+            echo json_encode(array('status' => 400,'message' => 'Bad request.'));
+        } 
+        else {
+            $check_auth_client = $this->api->check_auth_client(); 
+            if($check_auth_client === true){
+                $params = json_decode(file_get_contents('php://input'), TRUE);
+                if ($params['user_id'] == "") {                    
+                    $resp = array('status' => 400,'message' =>  'Hotel ID is Required');
+                 } 
+                 else {
+                    $resp = $this->api->getWishlist($params['user_id']);
+                }
+                echo json_encode($resp);
+            }
+           else{
+            echo $check_auth_client;
+           }
+        }       
+    }
+
+    public function getNonProfitServices(){
+         $method = $_SERVER['REQUEST_METHOD'];
+        if($method != 'POST'){
+            echo json_encode(array('status' => 400,'message' => 'Bad request.'));
+        } 
+        else {
+            $check_auth_client = $this->api->check_auth_client(); 
+            if($check_auth_client === true){
+                $params = json_decode(file_get_contents('php://input'), TRUE);
+                if ($params['serviceid'] == "") {                    
+                    $resp = array('status' => 400,'message' =>  'Service ID is Required');
+                 } 
+                 else {
+                    $resp = $this->api->getNonProfitServices($params['serviceid']);
+                }
+                echo json_encode($resp);
+            }
+           else{
+            echo $check_auth_client;
+           }
+        }       
+    }
 
 }
 

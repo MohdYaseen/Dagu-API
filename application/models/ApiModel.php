@@ -15,9 +15,17 @@ class ApiModel extends CI_Model
             return json_encode(array('status' => 401,'message' => 'Unauthorized.'));
         }
     }  
-    public function getMenus($id)
+    public function getRestautrantMenu($id){
+      $this->db->where('status', 'Active');
+      $this->db->where('businessid',$id); 
+
+      $query = $this->db->select("item_catid,cat_name")->get('item_category');
+      return array('status' => 200,'itemlist' => $query->result());
+    } 
+    public function getMenuItems($id,$item_catid)
     {  
         $this->db->where('businessid', $id);
+        $this->db->where('item_catid',$item_catid); 
         $query = $this->db->select("businessid as hotel_id, itemname as name,price,image,description")->get('business_items');
         return array('status' => 200,'menulist' => $query->result());
       
@@ -127,6 +135,7 @@ class ApiModel extends CI_Model
       }
     }
    public function updateCustomerAddress($data){
+           $this->db->where('add_id',$data['add_id']);
       $id= $this->db->update('customer_address',$data);
       if($id){
           return array('status' => 200,'message' => "update Added Successfully!");
@@ -135,8 +144,9 @@ class ApiModel extends CI_Model
           return array('status' => 400,'message' => "Error Occured!");
       }
     }
-      public function deleteCustomerAddress($data){
-      $id= $this->db->delete('customer_address',$data);
+      public function deleteCustomerAddress($id){
+        $this->db->where('add_id',$id);
+      $id= $this->db->delete('customer_address');
       if($id){
           return array('status' => 200,'message' => "Deleted Successfully!");
       }
@@ -144,7 +154,11 @@ class ApiModel extends CI_Model
           return array('status' => 400,'message' => "Error Occured!");
       }
     }
-  
+    public function getCustomerAddress($id){   
+      $this->db->where('user_id',$id); 
+      $query = $this->db->select("add_id,email,firstname,lastname,phonenumber")->get('customer_address');
+      return array('status' => 200,'CustomerAddressDetails' => $query->result());
+    }
 
      public function restaurantOrders($data){
       $id= $this->db->insert('business_orders',$data);
@@ -156,15 +170,9 @@ class ApiModel extends CI_Model
       }
     }
 
-    // public function cutomerWiseOrderDetails($data){
-    //      $this->db->where('userid', $id);
-    //     $query = $this->db->select("id as customer_id, fname,")->get('customer_base');
-    //     return array('status' => 200,'cutomerorderlist' => $query->result());
-    // }
-
     public function cutomerWiseOrderDetails($id){
         $this->db->where('user_id', $id);
-        $query = $this->db->select("order_id,businessid,add_id,products,carddetailsid,timeslotid,taxid,transaction_id, transaction_amount, transaction_date, payment_type, payment_status,order_status, order_type")->get('business_orders');
+        $query = $this->db->select("order_id,businessid,add_id,products,carddetailsid,timeslotid,taxid,transaction_id, transaction_amount,couponcode,couponcode_id, transaction_date, payment_type, payment_status,order_status, order_type")->get('business_orders');
         $orders= $query->result();
         
         foreach($orders as $order){
@@ -181,7 +189,8 @@ class ApiModel extends CI_Model
             $customer_card_details=$this->db->select('cartnumber,expirydate,cvv,zipcode')->from('customer_card_details')->where('carddetailsid
               ',$order->carddetailsid)->get()->row(); 
              $timeslotid=$this->db->select('formtime,totime')->from('timeslot')->where('timeslotid',$order->timeslotid)->get()->row();
-              $taxid=$this->db->select('taxname,percentage')->from('tax')->where('taxid',$order->taxid)->get()->row(); 
+              $taxid=$this->db->select('taxname,percentage')->from('tax')->where('taxid',$order->taxid)->get()->row();
+               $couponcode=$this->db->select('couponcode,couponcode_id')->from('couponcode')->where('couponcode_id',$order->couponcode_id)->get()->row(); 
             $finalarr[]=array(
                         "order_id"=>$order->order_id,
                         "transaction_id"=>$order->transaction_id,
@@ -197,7 +206,8 @@ class ApiModel extends CI_Model
                         "adderess"=>$customer_address,
                         "payment_deatils"=> $customer_card_details,
                         "timeslot"=>$timeslotid,
-                        "tax"=>$taxid
+                        "tax"=>$taxid,
+                        "couponcode"=>$couponcode
             );            
         }
         return $finalarr;
@@ -207,7 +217,7 @@ class ApiModel extends CI_Model
 
     public function businessWiseOrderDetails($id){
         $this->db->where('businessid', $id);
-        $query = $this->db->select("order_id,businessid,products,transaction_id,user_id, transaction_amount, transaction_date, payment_type, payment_status,order_status, order_type")->get('business_orders');
+        $query = $this->db->select("order_id,businessid,products,transaction_id,user_id,couponcode,couponcode_id, transaction_amount, transaction_date, payment_type, payment_status,order_status, order_type")->get('business_orders');
         $orders= $query->result();
         
         foreach($orders as $order){
@@ -225,6 +235,7 @@ class ApiModel extends CI_Model
               ',$order->carddetailsid)->get()->row(); 
            $timeslotid=$this->db->select('formtime,totime')->from('timeslot')->where('timeslotid',$order->timeslotid)->get()->row();
                  $taxid=$this->db->select('taxname,percentage')->from('tax')->where('taxid',$order->taxid)->get()->row(); 
+                   $couponcode=$this->db->select('couponcode,couponcode_id')->from('couponcode')->where('couponcode_id',$order->couponcode_id)->get()->row(); 
            $finalarr[]=array(
                         "order_id"=>$order->order_id,
                         "transaction_id"=>$order->transaction_id,
@@ -240,21 +251,17 @@ class ApiModel extends CI_Model
                         "adderess"=>$customer_address,
                         "payment_deatils"=> $customer_card_details,
                         "timeslot"=>$timeslotid,
-                        "tax"=>$taxid
+                        "tax"=>$taxid,
+                        "couponcode"=>$couponcode
             );            
         }
         return $finalarr;
     }
-     public function getRestautrantCategory($id){
-      $this->db->where('status', 'Active');
-      $this->db->where('businessid',$id); 
-      $query = $this->db->select("item_catid,cat_name")->get('item_category');
-      return array('status' => 200,'itemlist' => $query->result());
-    }
+   
 
 
 
- public function addCustPaymentDetails($data){
+    public function addCustPaymentDetails($data){
       $id= $this->db->insert('customer_card_details',$data);
       if($id){
           return array('status' => 200,'message' => "Details added Successfully!");
@@ -264,6 +271,7 @@ class ApiModel extends CI_Model
       }
     }
      public function updateCustPaymentDetails($data){
+      $this->db->where('carddetailsid',$data['carddetailsid'] );
       $id= $this->db->update('customer_card_details',$data);
       if($id){
           return array('status' => 200,'message' => "update Successfully!");
@@ -272,8 +280,9 @@ class ApiModel extends CI_Model
           return array('status' => 400,'message' => "Error Occured!");
       }
     }
-      public function deleteCustPaymentDetails($data){
-      $id= $this->db->delete('customer_card_details',$data);
+      public function deleteCustPaymentDetails($id){
+        $this->db->where('carddetailsid',$id );
+      $id= $this->db->delete('customer_card_details');
       if($id){
           return array('status' => 200,'message' => "Deleted Successfully!");
       }
@@ -281,13 +290,68 @@ class ApiModel extends CI_Model
           return array('status' => 400,'message' => "Error Occured!");
       }
     }
-  
-  
-    public function getMenuLists($id){
-      $this->db->where('status', 'Active');
-      $this->db->where('itemid',$id); 
-      $query = $this->db->select("businessid,itemname")->get('business_items');
-      return array('status' => 200,'menulist' => $query->result());
+    public function getCustPaymentDetails($id){
+      $this->db->where('user_id',$id); 
+      $query = $this->db->select("carddetailsid,cartnumber,expirydate,cvv,zipcode")->get('customer_card_details');
+      return array('status' => 200,'CustomerPaymentDetails' => $query->result());
     }
+
+    public function applyCouponcode($Code){
+      $coupons= $this->db->select('couponcode_id,couponcode,percentage')
+                    ->from('couponcode')
+                    ->where('couponcode',$Code)
+                     ->where('status','Active')
+                    ->get()->row();
+      if($coupons){
+          return array('status' => 200,
+            'couponcode_id'=>$coupons->couponcode_id,
+            'couponcode'=>$coupons->couponcode,
+            'percentage'=>$coupons->percentage,
+            'message' => "Code is valid!");
+      }
+      else{
+          return array('status' => 400,'message' => "Code is Invalid!");
+      }
+    }
+    
+
+    public function addWishlist($data){
+      $exits = $this->db->select('*')
+              ->from('wishlist')
+              ->where('itemid',$data['itemid'])
+               ->where('user_id',$data['user_id'])
+              ->get()
+              ->row();
+      if($exits){
+         return array('status' => 400,'message' => "This item already exists in whishlist");
+      }
+      else{
+        $id= $this->db->insert('wishlist',$data);
+        if($id){
+            return array('status' => 200,'message' => "Wishlist Added Successfully!");
+        }
+        else{
+            return array('status' => 400,'message' => "Error Occured!");
+        }
+      }
+    }
+
+   public function getWishlist($user_id){
+      $this->db->select('b.name  as business_name,c.itemid,i.cat_name,c.itemname,c.price,c.image,c.description');
+      $this->db->join("business_items as c","c.itemid=p.itemid");
+      $this->db->join("business as b","b.businessid=c.businessid");
+      $this->db->join("item_category as i","i.item_catid=c.item_catid");
+      $this->db->from("wishlist as p");
+      $this->db->where('p.user_id',$user_id);
+      $query = $this->db->get();
+      return array('status' => 200,'itemlist' => $query->result());
+    }
+
+  public function getNonProfitServices($id){
+    $this->db->where('status','Active');
+    $this->db->where('serviceid',$id); 
+    $query = $this->db->select("trust_id,trust_name,trust_address,image")->get('trust');
+    return array('status' => 200,'ServiceDetails' => $query->result());
+  }
 
 }

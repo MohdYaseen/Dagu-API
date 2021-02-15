@@ -15,7 +15,22 @@
 		"5cbe5456-78bd-03ae-b8f3-f332d485b013",
 		"4ad9b519-a9ac-4f98-affe-da9618b13570",
 		"99d692dc-d0e2-e3c8-0412-d6d77ee5a646",
-		"90bd4ff1-d686-e419-51b6-ae650f2dbbfd"
+		"90bd4ff1-d686-e419-51b6-ae650f2dbbfd",
+		"ddf4b286-09b1-e379-dbb2-7e04c9fd997e",
+		"b5daed79-b85e-06e8-7058-7308959f32c9",
+		"ff5c95c6-7861-791f-6729-94bdaf8e0e16",
+		"a5f05fb6-f880-4c52-34ee-19e1554a972e",
+		"800896f3-e5cb-f4c7-e4fa-dddd26410896",
+		"c6a5f17c-5c12-6700-cb48-d288942f42b0",
+		"90b65963-e05f-5a7f-721f-24802eac5ff6",
+		"5bb83d06-9002-1669-a91b-ca9b2e0a837b",
+		"ced20a13-b300-3403-1cac-0316a62a7b88",
+		"6e698ba1-b718-e6b8-68e0-3988d90b14d6",
+		"da37e0d4-f8e1-e7fa-b109-25391301c938",
+		"e5a1e773-9a38-f8ac-2cb5-11614269e55e",
+		"d296e258-53ba-f12f-8b21-6bc3d443edd2",
+		"9d86f3b1-ea8f-97f0-7121-0cd8a9222bb1",
+		"93d78726-5031-31a2-b7e8-bef1f29fa9ac"
 	],
 	"folders": [],
 	"folders_order": [],
@@ -320,6 +335,49 @@
 			"rawModeData": "{\n \"email\":\"skirfan43sy@gmail.com\",\n \"password\":\"12345\"\n \n}"
 		},
 		{
+			"id": "5bb83d06-9002-1669-a91b-ca9b2e0a837b",
+			"headers": "Client-Service: frontend-deguclient\nAuth-Key: BigBoss_2020\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Client-Service",
+					"value": "frontend-deguclient",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Auth-Key",
+					"value": "BigBoss_2020",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://ec2-18-188-124-27.us-east-2.compute.amazonaws.com/Apis/addCustPaymentDetails\n",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "bdcf3069-a9f2-b503-bee4-dd3ae4145b03",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Add Customer Payment ",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1613371548727,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\r\n\"user_id\":1,\r\n\"cartnumber\":\"789878998889\",\r\n\"expirydate\":\"7/35\",\r\n\"cvv\":\"111\",\r\n\"zipcode\":\"789987\"\r\n}\r\n"
+		},
+		{
 			"id": "5cbe5456-78bd-03ae-b8f3-f332d485b013",
 			"headers": "Client-Service: frontend-deguclient\nAuth-Key: BigBoss_2020\nContent-Type: application/json\n",
 			"headerData": [
@@ -361,6 +419,49 @@
 			"currentHelper": "normal",
 			"helperAttributes": {},
 			"rawModeData": "{\n\t\"businessid\":1,\n\t\"firstname\":\"Irfan\",\n\t\"lastname\":\"Shaikh\",\n\t\"email\":\"skirfan43sy@gmail.com\",\n\t\"phonenumber\":\"919970014417\",\n\t\"comment\":\"test\"\n}"
+		},
+		{
+			"id": "6e698ba1-b718-e6b8-68e0-3988d90b14d6",
+			"headers": "Client-Service: frontend-deguclient\nAuth-Key: BigBoss_2020\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Client-Service",
+					"value": "frontend-deguclient",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Auth-Key",
+					"value": "BigBoss_2020",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://ec2-18-188-124-27.us-east-2.compute.amazonaws.com/Apis/getCustPaymentDetails\n",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "bdcf3069-a9f2-b503-bee4-dd3ae4145b03",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Customer Payment Details",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1613372218383,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\t\"user_id\":1\n}"
 		},
 		{
 			"id": "79d57d47-41d7-aafb-3e03-aff27452b485",
@@ -405,6 +506,49 @@
 			"helperAttributes": {}
 		},
 		{
+			"id": "800896f3-e5cb-f4c7-e4fa-dddd26410896",
+			"headers": "Client-Service: frontend-deguclient\nAuth-Key: BigBoss_2020\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Client-Service",
+					"value": "frontend-deguclient",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Auth-Key",
+					"value": "BigBoss_2020",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://ec2-18-188-124-27.us-east-2.compute.amazonaws.com/Apis/updateCustomerAddress",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "bdcf3069-a9f2-b503-bee4-dd3ae4145b03",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Update  Customer Address",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1613368407069,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\t\"add_id\":1,\n\t\"user_id\":1,\n\t\"firstname\":\"Irfan\",\n\t\"lastname\":\"Shaikh\",\n\t\"email\":\"skirfan43sy@gmail.com\",\n\t\"phonenumber\":\"919970014417\"\n}"
+		},
+		{
 			"id": "87ca5bca-7bd6-3016-30b9-5872877975c7",
 			"headers": "Client-Service: frontend-deguclient\nAuth-Key: BigBoss_2020\nContent-Type: Application/json\n",
 			"headerData": [
@@ -445,6 +589,49 @@
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {}
+		},
+		{
+			"id": "90b65963-e05f-5a7f-721f-24802eac5ff6",
+			"headers": "Client-Service: frontend-deguclient\nAuth-Key: BigBoss_2020\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Client-Service",
+					"value": "frontend-deguclient",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Auth-Key",
+					"value": "BigBoss_2020",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://ec2-18-188-124-27.us-east-2.compute.amazonaws.com/Apis/getCustomerAddress",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "bdcf3069-a9f2-b503-bee4-dd3ae4145b03",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Customer Address Details",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1613371462416,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\t\"user_id\":1\n}"
 		},
 		{
 			"id": "90bd4ff1-d686-e419-51b6-ae650f2dbbfd",
@@ -490,8 +677,8 @@
 			"rawModeData": "{\n\t\"user_id\":1,\n\t\"firstname\":\"Irfan\",\n\t\"lastname\":\"Shaikh\",\n\t\"email\":\"skirfan43sy@gmail.com\",\n\t\"phonenumber\":\"919970014417\"\n}"
 		},
 		{
-			"id": "96f1b5ec-d14d-7a0f-6388-fdbe439d4cf9",
-			"headers": "Client-Service: frontend-deguclient\nAuth-Key: BigBoss_2020\nContent-Type: Application/json\n",
+			"id": "93d78726-5031-31a2-b7e8-bef1f29fa9ac",
+			"headers": "Client-Service: frontend-deguclient\nAuth-Key: BigBoss_2020\nContent-Type: application/json\n",
 			"headerData": [
 				{
 					"key": "Client-Service",
@@ -507,12 +694,12 @@
 				},
 				{
 					"key": "Content-Type",
-					"value": "Application/json",
+					"value": "application/json",
 					"description": "",
 					"enabled": true
 				}
 			],
-			"url": "http://ec2-18-188-124-27.us-east-2.compute.amazonaws.com/Apis/getMenus",
+			"url": "http://ec2-18-188-124-27.us-east-2.compute.amazonaws.com/Apis/getNonProfitServices",
 			"queryParams": [],
 			"pathVariables": {},
 			"pathVariableData": [],
@@ -521,16 +708,58 @@
 			"collectionId": "bdcf3069-a9f2-b503-bee4-dd3ae4145b03",
 			"data": [],
 			"dataMode": "raw",
-			"name": "getMenus",
+			"name": "Get Non Profit Services",
 			"description": "",
 			"descriptionFormat": "html",
-			"time": 1608735790722,
+			"time": 1613375236697,
 			"version": 2,
 			"responses": [],
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"rawModeData": "{\n\t\"hotel_id\":1\n}"
+			"rawModeData": "{\n\t \"serviceid\": \"11\"\n}"
+		},
+		{
+			"id": "96f1b5ec-d14d-7a0f-6388-fdbe439d4cf9",
+			"headers": "Client-Service: frontend-deguclient\nAuth-Key: BigBoss_2020\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Client-Service",
+					"value": "frontend-deguclient",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Auth-Key",
+					"value": "BigBoss_2020",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://ec2-18-188-124-27.us-east-2.compute.amazonaws.com/Apis/getRestautrantMenu",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1613364303184,
+			"name": "Restaurants Menus",
+			"description": "",
+			"collectionId": "bdcf3069-a9f2-b503-bee4-dd3ae4145b03",
+			"responses": [],
+			"rawModeData": "{\n\t\"hotel_id\":9\n}"
 		},
 		{
 			"id": "99d692dc-d0e2-e3c8-0412-d6d77ee5a646",
@@ -573,6 +802,434 @@
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {}
+		},
+		{
+			"id": "9d86f3b1-ea8f-97f0-7121-0cd8a9222bb1",
+			"headers": "Client-Service: frontend-deguclient\nAuth-Key: BigBoss_2020\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Client-Service",
+					"value": "frontend-deguclient",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Auth-Key",
+					"value": "BigBoss_2020",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://ec2-18-188-124-27.us-east-2.compute.amazonaws.com/Apis/getWishlist",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "bdcf3069-a9f2-b503-bee4-dd3ae4145b03",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Wish list",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1613374196506,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\t\"user_id\":1\n}"
+		},
+		{
+			"id": "a5f05fb6-f880-4c52-34ee-19e1554a972e",
+			"headers": "Client-Service: frontend-deguclient\nAuth-Key: BigBoss_2020\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Client-Service",
+					"value": "frontend-deguclient",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Auth-Key",
+					"value": "BigBoss_2020",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://ec2-18-188-124-27.us-east-2.compute.amazonaws.com/Apis/businessWiseOrderDetails",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "bdcf3069-a9f2-b503-bee4-dd3ae4145b03",
+			"data": [],
+			"dataMode": "raw",
+			"name": "business Orders",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1613368302334,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\r\n\t\"businessid\":1\r\n}\r\n"
+		},
+		{
+			"id": "b5daed79-b85e-06e8-7058-7308959f32c9",
+			"headers": "Client-Service: frontend-deguclient\nAuth-Key: BigBoss_2020\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Client-Service",
+					"value": "frontend-deguclient",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Auth-Key",
+					"value": "BigBoss_2020",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://ec2-18-188-124-27.us-east-2.compute.amazonaws.com/Apis/restaurantOrders",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "bdcf3069-a9f2-b503-bee4-dd3ae4145b03",
+			"data": [],
+			"dataMode": "raw",
+			"name": "restaurant orders",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1613368121689,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\r\n\t\"user_id\":\"1\",\r\n\t\"businessid\":\"1\",\r\n\t\"products\":[{\"item_id\": \"1\", \"quantity\": \"1\"}],\r\n\t\"transaction_id\":\"234567\",\r\n\t\"transaction_amount\":\"2234\",\r\n\t\"transaction_date\":\"5\",\r\n\t\"payment_type\":\"Card\",\r\n\t\"payment_status\":\"Success\",\r\n\t\"order_type\":\"Normal\",\r\n\t\"add_id\":2,\r\n\t\"timeslotid\":2,\r\n\t\"carddetailsid\":2,\r\n\t\"taxid\":1,\r\n\t\"couponcode_id\":1,\r\n\t\"couponcode\":\"ABC\"\r\n}\r\n"
+		},
+		{
+			"id": "c6a5f17c-5c12-6700-cb48-d288942f42b0",
+			"headers": "Client-Service: frontend-deguclient\nAuth-Key: BigBoss_2020\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Client-Service",
+					"value": "frontend-deguclient",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Auth-Key",
+					"value": "BigBoss_2020",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://ec2-18-188-124-27.us-east-2.compute.amazonaws.com/Apis/deleteCustomerAddress",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "bdcf3069-a9f2-b503-bee4-dd3ae4145b03",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Delete Customer Address",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1613369100036,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\t\"add_id\":1\n}"
+		},
+		{
+			"id": "ced20a13-b300-3403-1cac-0316a62a7b88",
+			"headers": "Client-Service: frontend-deguclient\nAuth-Key: BigBoss_2020\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Client-Service",
+					"value": "frontend-deguclient",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Auth-Key",
+					"value": "BigBoss_2020",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://ec2-18-188-124-27.us-east-2.compute.amazonaws.com/Apis/updateCustPaymentDetails\n",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "bdcf3069-a9f2-b503-bee4-dd3ae4145b03",
+			"data": [],
+			"dataMode": "raw",
+			"name": "update Cusotmer Payement",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1613372204477,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\r\n\t\"carddetailsid\":2,\r\n\t\"user_id\":1,\r\n\t\"cartnumber\":\"789878998889\",\r\n\t\"expirydate\":\"7/35\",\r\n\t\"cvv\":\"111\",\r\n\t\"zipcode\":\"789987\"\r\n}\r\n"
+		},
+		{
+			"id": "d296e258-53ba-f12f-8b21-6bc3d443edd2",
+			"headers": "Client-Service: frontend-deguclient\nAuth-Key: BigBoss_2020\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Client-Service",
+					"value": "frontend-deguclient",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Auth-Key",
+					"value": "BigBoss_2020",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://ec2-18-188-124-27.us-east-2.compute.amazonaws.com/Apis/addWishlist",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1613374181965,
+			"name": "add wishlist",
+			"description": "",
+			"collectionId": "bdcf3069-a9f2-b503-bee4-dd3ae4145b03",
+			"responses": [],
+			"rawModeData": "{\n\t\"user_id\":1,\n\t\"itemid\":1\n}"
+		},
+		{
+			"id": "da37e0d4-f8e1-e7fa-b109-25391301c938",
+			"headers": "Client-Service: frontend-deguclient\nAuth-Key: BigBoss_2020\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Client-Service",
+					"value": "frontend-deguclient",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Auth-Key",
+					"value": "BigBoss_2020",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://ec2-18-188-124-27.us-east-2.compute.amazonaws.com/Apis/deleteCustPaymentDetails",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "bdcf3069-a9f2-b503-bee4-dd3ae4145b03",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Delete Customer Payment",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1613372496565,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\t\"carddetailsid\":2\n}"
+		},
+		{
+			"id": "ddf4b286-09b1-e379-dbb2-7e04c9fd997e",
+			"headers": "Client-Service: frontend-deguclient\nAuth-Key: BigBoss_2020\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Client-Service",
+					"value": "frontend-deguclient",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Auth-Key",
+					"value": "BigBoss_2020",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://ec2-18-188-124-27.us-east-2.compute.amazonaws.com/Apis/getMenuItems",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "bdcf3069-a9f2-b503-bee4-dd3ae4145b03",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Menu Items",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1613364557566,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\t\"hotel_id\":9,\n\t\"item_catid\":1\n}"
+		},
+		{
+			"id": "e5a1e773-9a38-f8ac-2cb5-11614269e55e",
+			"headers": "Client-Service: frontend-deguclient\nAuth-Key: BigBoss_2020\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Client-Service",
+					"value": "frontend-deguclient",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Auth-Key",
+					"value": "BigBoss_2020",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://ec2-18-188-124-27.us-east-2.compute.amazonaws.com/Apis/applyCouponcode",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "bdcf3069-a9f2-b503-bee4-dd3ae4145b03",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Apply Coupon",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1613372697966,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\t\"couponcode\":\"COUPON30\"\n}"
+		},
+		{
+			"id": "ff5c95c6-7861-791f-6729-94bdaf8e0e16",
+			"headers": "Client-Service: frontend-deguclient\nAuth-Key: BigBoss_2020\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Client-Service",
+					"value": "frontend-deguclient",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Auth-Key",
+					"value": "BigBoss_2020",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://ec2-18-188-124-27.us-east-2.compute.amazonaws.com/Apis/cutomerWiseOrderDetails",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "bdcf3069-a9f2-b503-bee4-dd3ae4145b03",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Customer Orders",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1613368242082,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\r\n\t\"user_id\":1\r\n}\r\n"
 		}
 	]
 }
