@@ -50,8 +50,13 @@ class ApiModel extends CI_Model
        $this->db->where('email', $email);
        $this->db->where('password', md5($pass));
        $this->db->where('status', 'Active');
-       $query = $this->db->select("title, fname,lname,email,device_type,logintype")->get('customer_base');
-       return array('status' => 200,'userdetails' => $query->row());
+       $query = $this->db->select("title, fname,lname,email,device_type,logintype")->get('customer_base')->row();
+      if($query){
+        return array('status' => 200,'userdetails' => $query);
+      }
+      else{
+        return array('status' => 400,'message' => "Username and Password is not correct!");
+      }
     }
 
     public function customerFacebookGoogleLogin($data)
@@ -60,8 +65,14 @@ class ApiModel extends CI_Model
        if($id){
            $this->db->where('email', $data['email']);          
            $this->db->where('status', 'Active');
-           $query = $this->db->select("id,title, fname,lname,email,device_type,logintype")->get('customer_base');
-           return array('status' => 200,'userdetails' => $query->row());
+            $this->db->where('logintype', $data['logintype']);
+           $query = $this->db->select("id,title, fname,lname,email,device_type,logintype")->get('customer_base')->row();
+          if($query){
+            return array('status' => 200,'userdetails' => $query);
+          }
+          else{
+            return array('status' => 400,'message' => "Username not correct!");
+          }   
         }
        else{
             $reg= $this->db->insert('customer_base',$data);
@@ -123,6 +134,12 @@ class ApiModel extends CI_Model
       $this->db->where('status', 'Active');
       $query = $this->db->select("timeslotid,formtime,totime")->get('timeslot');
       return array('status' => 200,'timeslot' => $query->result());
+    }
+     
+    public function getTaxes(){
+      $this->db->where('status', 'Active');
+      $query = $this->db->select("taxid,taxname,percentage")->get('tax');
+      return array('status' => 200,'taxlist' => $query->result());
     }
 
      public function addCustomerAddress($data){
@@ -270,6 +287,7 @@ class ApiModel extends CI_Model
           return array('status' => 400,'message' => "Error Occured!");
       }
     }
+
      public function updateCustPaymentDetails($data){
       $this->db->where('carddetailsid',$data['carddetailsid'] );
       $id= $this->db->update('customer_card_details',$data);

@@ -120,7 +120,7 @@ class Apis extends CI_Controller {
         else {
             $check_auth_client = $this->api->check_auth_client();
             if($check_auth_client === true){
-                $params = json_decode(file_get_contents('php://input'), TRUE);
+                $params = json_decode(file_get_contents('php://input'), TRUE);             
                if ($params['email'] == "") {                    
                     $resp = array('status' => 400,'message' =>  'Email ID is Required');
                 }               
@@ -128,7 +128,6 @@ class Apis extends CI_Controller {
                     $resp = array('status' => 400,'message' =>  'Password is Required');
                 }                
                 else {
-                   
                     $resp = $this->api->customerLogin($params['email'],$params['password']);
                 }
                 echo json_encode($resp);
