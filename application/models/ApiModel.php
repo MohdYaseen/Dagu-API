@@ -12,22 +12,21 @@ class ApiModel extends CI_Model
         if($client_service == $this->client_service && $auth_key == $this->auth_key){
             return true;
         } else {
-            return json_encode(array('status' => 401,'message' => 'Unauthorized.'));
+            return json_encode(array('statusCode' => 401,'errorMessage' => 'Unauthenticated user.'));
         }
     }  
     public function getRestautrantMenu($id){
       $this->db->where('status', 'Active');
       $this->db->where('businessid',$id); 
-
       $query = $this->db->select("item_catid,cat_name")->get('item_category');
-      return array('status' => 200,'itemlist' => $query->result());
+      return array('statusCode' => 200,'response'=>array('itemlist' => $query->result()));
     } 
     public function getMenuItems($id,$item_catid)
     {  
         $this->db->where('businessid', $id);
         $this->db->where('item_catid',$item_catid); 
         $query = $this->db->select("businessid as hotel_id, itemname as name,price,image,description")->get('business_items');
-        return array('status' => 200,'menulist' => $query->result());
+        return array('statusCode' => 200,'response'=>array('menulist' => $query->result()));
       
     }
     public function checkEmailExist($email){
@@ -38,10 +37,10 @@ class ApiModel extends CI_Model
     public function customerRegistration($data){
         $id= $this->db->insert('customer_base',$data);
         if($id){
-            return array('status' => 200,'message' => "Registration Successfully!");
+            return array('statusCode' => 200,'response'=>array('Message' => "Registration Successfully!"));
         }
         else{
-            return array('status' => 400,'message' => "Error Occured!");
+            return array('statusCode' => 400,'errorMessage' => "Error Occured!");
         }
     }
 
@@ -52,10 +51,10 @@ class ApiModel extends CI_Model
        $this->db->where('status', 'Active');
        $query = $this->db->select("title, fname,lname,email,device_type,logintype")->get('customer_base')->row();
       if($query){
-        return array('status' => 200,'userdetails' => $query);
+        return array('statusCode' => 200,'response'=>array('userdetails' => $query));
       }
       else{
-        return array('status' => 400,'message' => "Username and Password is not correct!");
+        return array('statusCode' => 400,'errorMessage' => "Username and Password is not correct!");
       }
     }
 
@@ -68,10 +67,10 @@ class ApiModel extends CI_Model
             $this->db->where('logintype', $data['logintype']);
            $query = $this->db->select("id,title, fname,lname,email,device_type,logintype")->get('customer_base')->row();
           if($query){
-            return array('status' => 200,'userdetails' => $query);
+            return array('statusCode' => 200,'response'=>array('userdetails' => $query));
           }
           else{
-            return array('status' => 400,'message' => "Username not correct!");
+            return array('statusCode' => 400,'errorMessage' => "Username not correct!");
           }   
         }
        else{
@@ -80,10 +79,10 @@ class ApiModel extends CI_Model
                $this->db->where('email', $data['email']);          
                $this->db->where('status', 'Active');
                $query = $this->db->select("title, fname,lname,email,device_type,logintype")->get('customer_base');
-               return array('status' => 200,'userdetails' => $query->row());
+               return array('statusCode' => 200,'response'=>array('userdetails' => $query->row()));
             }
             else{
-                return array('status' => 400,'message' => "Error Occured!");
+                return array('statusCode' => 400,'errorMessage' => "Error Occured!");
             }
        }
     }
@@ -92,104 +91,104 @@ class ApiModel extends CI_Model
         $this->db->where('status', 'Active'); 
         $this->db->where('type','Business');         
         $query = $this->db->select("serviceid,servicename")->get('services');
-        return array('status' => 200,'servicelist' => $query->result());
+        return array('statusCode' => 200,'response'=>array('servicelist' => $query->result()));
     }
     public function getMedicalServices(){ 
       $this->db->where('status', 'Active');
       $this->db->where('type','Medical');
       $query = $this->db->select("serviceid,servicename")->get('services');
-      return array('status' => 200,'servicelist' => $query->result());
+      return array('statusCode' => 200,'response'=>array('servicelist' => $query->result()));
     }
     public function getRestaurant(){ 
       $this->db->where('status', 'Active');
       $this->db->where('type','Restaurant'); 
       $query = $this->db->select("serviceid,servicename")->get('services');
-      return array('status' => 200,'servicelist' => $query->result());
+      return array('statusCode' => 200,'response'=>array('servicelist' => $query->result()));
     }
     public function getNotProfit(){ 
       $this->db->where('status', 'Active');
       $this->db->where('type','NonProfit'); 
       $query = $this->db->select("serviceid,servicename")->get('services');
-      return array('status' => 200,'servicelist' => $query->result());
+      return array('statusCode' => 200,'response'=>array('servicelist' => $query->result()));
     }
 
     public function getServiceBusinessList($id){
       $this->db->where('status', 'Active');
       $this->db->where('serviceid',$id); 
       $query = $this->db->select("businessid,name,address,websiteurl,image")->get('business');
-      return array('status' => 200,'businesslist' => $query->result());
+      return array('statusCode' => 200,'response'=>array('businesslist' => $query->result()));
     }
 
     public function makeAnAppointment($data){
       $id= $this->db->insert('business_appointment',$data);
       if($id){
-          return array('status' => 200,'message' => "Make Appointment Successfully!");
+          return array('statusCode' => 200,'response'=>array('Message' => "Make Appointment Successfully!"));
       }
       else{
-          return array('status' => 400,'message' => "Error Occured!");
+          return array('statusCode' => 400,'errorMessage' => "Error Occured!");
       }
     }
 
     public function getTimeSlot(){
       $this->db->where('status', 'Active');
       $query = $this->db->select("timeslotid,formtime,totime")->get('timeslot');
-      return array('status' => 200,'timeslot' => $query->result());
+      return array('statusCode' => 200,'response'=>array('timeslot' => $query->result()));
     }
      
     public function getTaxes(){
       $this->db->where('status', 'Active');
       $query = $this->db->select("taxid,taxname,percentage")->get('tax');
-      return array('status' => 200,'taxlist' => $query->result());
+      return array('statusCode' => 200,'response'=>array('taxlist' => $query->result()));
     }
 
      public function addCustomerAddress($data){
       $id= $this->db->insert('customer_address',$data);
       if($id){
-          return array('status' => 200,'message' => "Address Added Successfully!");
+          return array('statusCode' => 200,'response'=>array('Message' => "Address Added Successfully!"));
       }
       else{
-          return array('status' => 400,'message' => "Error Occured!");
+          return array('statusCode' => 400,'errorMessage' => "Error Occured!");
       }
     }
    public function updateCustomerAddress($data){
            $this->db->where('add_id',$data['add_id']);
       $id= $this->db->update('customer_address',$data);
       if($id){
-          return array('status' => 200,'message' => "update Added Successfully!");
+          return array('statusCode' => 200,'response'=>array('Message' => "update Added Successfully!"));
       }
       else{
-          return array('status' => 400,'message' => "Error Occured!");
+          return array('statusCode' => 400,'errorMessage' => "Error Occured!");
       }
     }
       public function deleteCustomerAddress($id){
         $this->db->where('add_id',$id);
       $id= $this->db->delete('customer_address');
       if($id){
-          return array('status' => 200,'message' => "Deleted Successfully!");
+          return array('statusCode' => 200,'response'=>array('Message' => "Deleted Successfully!"));
       }
       else{
-          return array('status' => 400,'message' => "Error Occured!");
+          return array('statusCode' => 400,'errorMessage' => "Error Occured!");
       }
     }
     public function getCustomerAddress($id){   
       $this->db->where('user_id',$id); 
       $query = $this->db->select("add_id,email,firstname,lastname,phonenumber")->get('customer_address');
-      return array('status' => 200,'CustomerAddressDetails' => $query->result());
+      return array('statusCode' => 200,'response'=>array('CustomerAddressDetails' => $query->result()));
     }
 
      public function restaurantOrders($data){
       $id= $this->db->insert('business_orders',$data);
       if($id){
-          return array('status' => 200,'message' => "Order Successfully Placed!");
+          return array('statusCode' => 200,'response'=>array('Message' => "Order Successfully Placed!"));
       }
       else{
-          return array('status' => 400,'message' => "Error Occured!");
+          return array('statusCode' => 400,'errorMessage' => "Error Occured!");
       }
     }
 
     public function cutomerWiseOrderDetails($id){
         $this->db->where('user_id', $id);
-        $query = $this->db->select("order_id,businessid,add_id,products,carddetailsid,timeslotid,taxid,transaction_id, transaction_amount,couponcode,couponcode_id, transaction_date, payment_type, payment_status,order_status, order_type")->get('business_orders');
+        $query = $this->db->select("order_id,businessid,add_id,products,carddetailsid,timeslotid,taxid,transaction_id, transaction_amount,couponcode,couponcode_id, transaction_date, payment_type, payment_statusCode,order_statusCode, order_type")->get('business_orders');
         $orders= $query->result();
         
         foreach($orders as $order){
@@ -214,9 +213,9 @@ class ApiModel extends CI_Model
                         "transaction_amount"=>$order->transaction_amount,
                         "transaction_date"=>$order->transaction_date,
                         "payment_type"=>$order->payment_type,
-                        "payment_status"=>$order->payment_status,
+                        "payment_statusCode"=>$order->payment_statusCode,
                         "order_type"=>$order->order_type,
-                        "order_status"=>$order->order_status,
+                        "order_statusCode"=>$order->order_statusCode,
                         "businessid"=>$order->businessid,
                         "business_name"=>$business->name,
                         "products"=>$prod_final,
@@ -227,14 +226,15 @@ class ApiModel extends CI_Model
                         "couponcode"=>$couponcode
             );            
         }
-        return $finalarr;
+         return array('statusCode' => 200,'response'=>$finalarr);
+       
     }
 
 
 
     public function businessWiseOrderDetails($id){
         $this->db->where('businessid', $id);
-        $query = $this->db->select("order_id,businessid,products,transaction_id,user_id,couponcode,couponcode_id, transaction_amount, transaction_date, payment_type, payment_status,order_status, order_type")->get('business_orders');
+        $query = $this->db->select("order_id,businessid,products,transaction_id,user_id,couponcode,couponcode_id, transaction_amount, transaction_date, payment_type, payment_statusCode,order_statusCode, order_type")->get('business_orders');
         $orders= $query->result();
         
         foreach($orders as $order){
@@ -259,9 +259,9 @@ class ApiModel extends CI_Model
                         "transaction_amount"=>$order->transaction_amount,
                         "transaction_date"=>$order->transaction_date,
                         "payment_type"=>$order->payment_type,
-                        "payment_status"=>$order->payment_status,
+                        "payment_statusCode"=>$order->payment_statusCode,
                         "order_type"=>$order->order_type,
-                        "order_status"=>$order->order_status,
+                        "order_statusCode"=>$order->order_statusCode,
                         "businessid"=>$order->businessid,
                         "user_name"=>$business->user_id,
                         "products"=>$prod_final,
@@ -272,7 +272,7 @@ class ApiModel extends CI_Model
                         "couponcode"=>$couponcode
             );            
         }
-        return $finalarr;
+        return array('statusCode' => 200,'response'=>$finalarr);
     }
    
 
@@ -281,10 +281,10 @@ class ApiModel extends CI_Model
     public function addCustPaymentDetails($data){
       $id= $this->db->insert('customer_card_details',$data);
       if($id){
-          return array('status' => 200,'message' => "Details added Successfully!");
+          return array('statusCode' => 200,'response'=>array('Message' => "Payment Details added Successfully!"));
       }
       else{
-          return array('status' => 400,'message' => "Error Occured!");
+          return array('statusCode' => 400,'errorMessage' => "Error Occured!");
       }
     }
 
@@ -292,26 +292,26 @@ class ApiModel extends CI_Model
       $this->db->where('carddetailsid',$data['carddetailsid'] );
       $id= $this->db->update('customer_card_details',$data);
       if($id){
-          return array('status' => 200,'message' => "update Successfully!");
+          return array('statusCode' => 200,'response'=>array('Message' => "Payment Details update Successfully!"));
       }
       else{
-          return array('status' => 400,'message' => "Error Occured!");
+          return array('statusCode' => 400,'errorMessage' => "Error Occured!");
       }
     }
       public function deleteCustPaymentDetails($id){
         $this->db->where('carddetailsid',$id );
       $id= $this->db->delete('customer_card_details');
       if($id){
-          return array('status' => 200,'message' => "Deleted Successfully!");
+          return array('statusCode' => 200,'response'=>array('Message' => "Deleted Successfully!"));
       }
       else{
-          return array('status' => 400,'message' => "Error Occured!");
+          return array('statusCode' => 400,'errorMessage' => "Error Occured!");
       }
     }
     public function getCustPaymentDetails($id){
       $this->db->where('user_id',$id); 
       $query = $this->db->select("carddetailsid,cartnumber,expirydate,cvv,zipcode")->get('customer_card_details');
-      return array('status' => 200,'CustomerPaymentDetails' => $query->result());
+      return array('statusCode' => 200,'response'=>array('CustomerPaymentDetails' => $query->result()));
     }
 
     public function applyCouponcode($Code){
@@ -321,14 +321,14 @@ class ApiModel extends CI_Model
                      ->where('status','Active')
                     ->get()->row();
       if($coupons){
-          return array('status' => 200,
-            'couponcode_id'=>$coupons->couponcode_id,
+          return array('statusCode' => 200,
+            'response'=>array('couponcode_id'=>$coupons->couponcode_id,
             'couponcode'=>$coupons->couponcode,
             'percentage'=>$coupons->percentage,
-            'message' => "Code is valid!");
+            'Message' => "Code is valid!"));
       }
       else{
-          return array('status' => 400,'message' => "Code is Invalid!");
+          return array('statusCode' => 400,'errorMessage' => "Code is Invalid!");
       }
     }
     
@@ -341,15 +341,15 @@ class ApiModel extends CI_Model
               ->get()
               ->row();
       if($exits){
-         return array('status' => 400,'message' => "This item already exists in whishlist");
+         return array('statusCode' => 400,'errorMessage' => "This item already exists in whishlist");
       }
       else{
         $id= $this->db->insert('wishlist',$data);
         if($id){
-            return array('status' => 200,'message' => "Wishlist Added Successfully!");
+            return array('statusCode' => 200,'response'=>array('Message' => "Wishlist Added Successfully!"));
         }
         else{
-            return array('status' => 400,'message' => "Error Occured!");
+            return array('statusCode' => 400,'errorMessage' => "Error Occured!");
         }
       }
     }
@@ -362,14 +362,14 @@ class ApiModel extends CI_Model
       $this->db->from("wishlist as p");
       $this->db->where('p.user_id',$user_id);
       $query = $this->db->get();
-      return array('status' => 200,'itemlist' => $query->result());
+      return array('statusCode' => 200,'response'=>array('itemlist' => $query->result()));
     }
 
   public function getNonProfitServices($id){
     $this->db->where('status','Active');
     $this->db->where('serviceid',$id); 
     $query = $this->db->select("trust_id,trust_name,trust_address,image")->get('trust');
-    return array('status' => 200,'ServiceDetails' => $query->result());
+    return array('statusCode' => 200,'response'=>array('ServiceDetails' => $query->result()));
   }
 
 }
